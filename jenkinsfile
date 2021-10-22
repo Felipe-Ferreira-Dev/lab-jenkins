@@ -5,7 +5,7 @@ pipeline {
         stage('Clone') {
             steps {
                 //Clone repo do git com o codigo para provisionar e configurar as maquinas
-                git 'git@github.com:Felipe-Ferreira-Dev/lab-jenkins.git'
+                git url 'git@github.com:Felipe-Ferreira-Dev/lab-jenkins.git', branch: 'main'
             }
         }
         stage('Deploy EC2 ') {

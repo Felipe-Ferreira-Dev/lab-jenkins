@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd lab-jenkins/terraform
+cd terraform
 ~/terraform init
 ~/terraform apply -auto-approve
 

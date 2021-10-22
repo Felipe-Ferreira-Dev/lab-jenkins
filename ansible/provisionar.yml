@@ -15,9 +15,5 @@
       state: latest
     with_items:
       - nginx
+      - default-jdk
   
-  - name: "Instala java"
-    become: yes
-    shell: "apt install default-jdk -y"
- 
- 

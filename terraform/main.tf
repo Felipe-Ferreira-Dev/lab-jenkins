@@ -5,7 +5,7 @@ provider "aws" {
 resource "aws_instance" "ec2_jenkins_nginx" {
   ami                         = "ami-09e67e426f25ce0d7"
   instance_type               = "t2.micro"
-  key_name                    = "key-dev-tf"
+  key_name                    = "jenkins-ffaihdw"
   subnet_id                   = "subnet-0b6ee665d5b518339"
   associate_public_ip_address = true
   root_block_device {

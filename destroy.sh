@@ -1,4 +1,4 @@
 #!/bin/bash
 
 cd terraform/
-~/terraform destroy -auto-approve
+/home/ubuntu/terraform destroy -auto-approve

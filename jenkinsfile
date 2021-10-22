@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone') {
+            steps {
+                //Clone repo do git com o codigo para provisionar e configurar as maquinas
+                git 'git@github.com:Felipe-Ferreira-Dev/lab-jenkins.git'
+            }
+        }
+        stage('Deploy EC2 ') {
+            steps {
+                // Run shell script para criar EC2 com Terraform e config Java e Nginx com Ansible
+                sh "lab-jenkins/deploy.sh"
+            }
+        }
+        stage('Test Nginx') {
+            steps {
+                // Run shell script de test do Nginx
+                sh "lab-jenkins/test.sh"
+            }
+        }
+        stage('Build AMI') {
+            steps {
+                // Lista diretorio
+                sh "ls -la"
+            }
+        }
+    } 
+}
+
+

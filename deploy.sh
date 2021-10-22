@@ -1,8 +1,8 @@
 #!/bin/bash
 
 cd terraform
-/home/ubuntu/terraform init
-/home/ubuntu/terraform apply -auto-approve
+sudo /home/ubuntu/terraform init
+sudo /home/ubuntu/terraform apply -auto-approve
 
 echo "Aguardando criação de maquinas ..."
 sleep 15 # 15 segundos

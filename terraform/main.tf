@@ -74,7 +74,7 @@ output "output_jenkins_nginx" {
     "ec2_jenkins_nginx",
     "id: ${aws_instance.ec2_jenkins_nginx.id}",
     "private: ${aws_instance.ec2_jenkins_nginx.private_ip}",
-    "public: ${aws_instance.ec2_jenkins_nginx.public_ip}",
+    "public_ip: ${aws_instance.ec2_jenkins_nginx.public_ip}",
     "public_dns: ${aws_instance.ec2_jenkins_nginx.public_dns}",
     "ssh -i ssh -i ~/.ssh/id_rsa_itau ubuntu@${aws_instance.ec2_jenkins_nginx.public_dns}"
   ]

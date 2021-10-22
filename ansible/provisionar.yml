@@ -1,0 +1,23 @@
+- hosts: all
+  tasks:
+      
+  - name: "APT Update"
+    become: yes
+    apt:
+      upgrade: yes
+      update_cache: yes
+      cache_valid_time: 86400
+
+  - name: "Instalando nginx"
+    become: yes
+    apt:
+      name: "{{ item }}"
+      state: latest
+    with_items:
+      - nginx
+  
+  - name: "Instala java"
+    become: yes
+    shell: "apt install default-jdk -y"
+ 
+ 

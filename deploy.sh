@@ -1,14 +1,14 @@
 #!/bin/bash
 
 cd terraform
-sudo /home/ubuntu/terraform init
-sudo /home/ubuntu/terraform apply -auto-approve
+/home/ubuntu/terraform init
+/home/ubuntu/terraform apply -auto-approve
 
 echo "Aguardando criação de maquinas ..."
 sleep 15 # 15 segundos
 
-sudo echo $"[ec2-dev-img-jenkins]" > ../ansible/hosts # cria arquivo
-sudo echo "$(/home/ubuntu/terraform output | grep public_dns | awk '{print $2;exit}')" | sed -e "s/\",//g" >> ../ansible/hosts # captura output faz split de espaco e replace de ",
+echo $"[ec2-dev-img-jenkins]" > ../ansible/hosts # cria arquivo
+echo "$(/home/ubuntu/terraform output | grep public_dns | awk '{print $2;exit}')" | sed -e "s/\",//g" >> ../ansible/hosts # captura output faz split de espaco e replace de ",
 
 echo "Aguardando criação de maquinas ..."
 sleep 15 # 15 segundos

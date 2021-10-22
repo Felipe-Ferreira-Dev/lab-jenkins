@@ -5,27 +5,32 @@ pipeline {
         stage('Clone') {
             steps {
                 //Clone repo do git com o codigo para provisionar e configurar as maquinas
-                git url: 'git@github.com:Felipe-Ferreira-Dev/lab-jenkins.git', branch: 'main'
+                git url: 'https://github.com/Felipe-Ferreira-Dev/lab-jenkins.git', branch: 'main'
             }
         }
         stage('Deploy EC2 ') {
             steps {
-                // Run shell script para criar EC2 com Terraform e config Java e Nginx com Ansible
-                sh "lab-jenkins/deploy.sh"
+                //  shell script para criar EC2 com Terraform e config Java e Nginx com Ansible
+                sh '/var/lib/jenkins/workspace/LabNginx/deploy.sh'
             }
         }
         stage('Test Nginx') {
             steps {
-                // Run shell script de test do Nginx
-                sh "lab-jenkins/test.sh"
+                //  shell script de test do Nginx
+                sh '/var/lib/jenkins/workspace/LabNginx/test.sh'
             }
         }
         stage('Build AMI') {
             steps {
-                // Lista diretorio
-                sh "ls -la"
+                // Shell script para criar AMI da EC2 criada
+                sh 'var/lib/jenkins/workspace/LabNginx/package-ami.sh'
             }
         }
-    } 
+        stage('Destroy EC2 AMI') {
+            steps {
+                // Shell script para destruir EC2
+                sh 'var/lib/jenkins/workspace/LabNginx/destroy.sh'
+            }
+        }
+    }
 }
-

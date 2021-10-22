@@ -17,3 +17,4 @@ else
     echo "::::: nginx não está no ar :::::"
     exit 1
 fi
+

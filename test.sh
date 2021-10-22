@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd terraform/
-uri=$(/home/ubuntu/terraform output | grep public_ip | awk '{print $2;exit}' | sed -e "s/\",//g")
+uri=$(/home/ubuntu/terraform output | grep public_dns | awk '{print $2;exit}' | sed -e "s/\",//g")
 
 echo $uri
 

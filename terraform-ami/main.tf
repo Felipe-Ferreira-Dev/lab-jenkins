@@ -3,19 +3,11 @@ provider "aws" {
 }
 
 resource "aws_ami_from_instance" "ami-jenkins" {
-  name               = "terraform-jenkins-${var.versao}"
-  source_instance_id = var.resource_id
+  name               = "terraform-jenkins-ffaihdw-${var.versao}"
+  source_instance_id = "i-0360098a543f2cac0"
 }
 
-variable "resource_id" {
-  type        = string
-  description = "Qual o ID da máquina?"
-}
 
-variable "versao" {
-  type        = string
-  description = "Qual versão da imagem?"
-}
 
 output "ami" {
   value = [

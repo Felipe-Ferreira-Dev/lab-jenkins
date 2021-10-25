@@ -2,3 +2,4 @@
 
 cd terraform/
 /home/ubuntu/terraform destroy -auto-approve
+
